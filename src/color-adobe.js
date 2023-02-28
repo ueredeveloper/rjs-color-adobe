@@ -1,4 +1,4 @@
-const adobeColors = [
+export const adobeColors = [
     {
         "img": "https://mir-s3-cdn-cf.behance.net/projects/202/d9b5bc121546395.60c93841a97b0.jpg",
         "colors": [
@@ -359,6 +359,4 @@ const adobeColors = [
             "rgb(191, 121, 96)"
         ]
     }
-]
-
-export {adobeColors}
+];
