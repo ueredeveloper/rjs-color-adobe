@@ -20,7 +20,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 
 export const App = () => {
 
-  const [thPalette, setThPalette] = React.useState({
+  const [palette, setPalette] = React.useState({
     primary: {
       main: 'rgb(140, 3, 53)',
     },
@@ -44,16 +44,16 @@ export const App = () => {
         palette: {
           mode,
           ...(mode === 'light'
-            ? thPalette
+            ? palette
             : darkMode),
         },
       }),
-    [mode, thPalette],
+    [mode, palette],
   );
 
   const onClickImage = (item) => {
 
-    const _thPalette = {
+    const _palette = {
       primary: {
         main: item[1],
       },
@@ -61,7 +61,7 @@ export const App = () => {
         main: item[3],
       },
     };
-    setThPalette(_thPalette)
+    setPalette(_palette)
 
   }
 
@@ -131,7 +131,6 @@ export const App = () => {
   }));
 
 
-
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -165,7 +164,7 @@ export const App = () => {
         </AppBar>
       </Box>
       <ImageList
-        sx={{height: 600}}
+        sx={{ height: 600 }}
         variant="quilted"
         cols={4}
         rowHeight={130}
@@ -187,19 +186,19 @@ export const App = () => {
         )
         )}
       </ImageList>
-      <Box sx={{  width: '300', alignContent: 'center'}}>
-      <Slider
-      color="secondary"
-        aria-label="Small steps"
-        defaultValue={0.00000005}
-        getAriaValueText={valuetext}
-        step={0.00000001}
-        marks
-        min={-0.00000005}
-        max={0.0000001}
-        valueLabelDisplay="auto"
-      />
-    </Box>
+      <Box sx={{ width: '300', alignContent: 'center' }}>
+        <Slider
+          color="secondary"
+          aria-label="Small steps"
+          defaultValue={0.00000005}
+          getAriaValueText={valuetext}
+          step={0.00000001}
+          marks
+          min={-0.00000005}
+          max={0.0000001}
+          valueLabelDisplay="auto"
+        />
+      </Box>
 
     </ThemeProvider>)
 }
